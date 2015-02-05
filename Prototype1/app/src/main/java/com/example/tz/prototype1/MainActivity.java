@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import static com.example.tz.prototype1.R.id.home_unplugged;
+import static com.example.tz.prototype1.R.id.imageView;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
@@ -25,7 +26,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     ImageButton arrowRightButton;
     ImageButton lowerLeftSelect;
     ImageButton lowerRightSelect;
-    int currentScreen = 0;
+    ImageButton powerButton;
+    int currentScreen;
+    boolean screenOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setImageResource(R.drawable.home_unplugged);
-        imageView.setVisibility(View.VISIBLE);
+        imageView.setImageResource(R.drawable.cochlear_logo);
+        imageView.setVisibility(View.INVISIBLE);
+        screenOn = false;
+
+        currentScreen = 0;
 
         OKButton = (ImageButton) findViewById(R.id.OKButton);
         OKButton.setOnClickListener(this);
@@ -59,6 +65,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         lowerRightSelect = (ImageButton) findViewById(R.id.lowerRightSelect);
         lowerRightSelect.setOnClickListener(this);
+
+        powerButton = (ImageButton) findViewById(R.id.powerButton);
+        powerButton.setOnClickListener(this);
 
     }
 
@@ -88,14 +97,81 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+        // 0: logo
+        // 1: home_unplugged
+        // 2: home_charging
+        // 3: implant_info
+        // 4: charger_info
+
+
         switch (v.getId()) {
 
             case R.id.homeButton:
-                imageView.setImageResource(R.drawable.home_unplugged);
+                if (screenOn) {
+                    imageView.setImageResource(R.drawable.home_unplugged);
+                    currentScreen = 1;
+                }
                 break;
 
             case R.id.OKButton:
-                imageView.setImageResource(R.drawable.home_charging);
+                if (screenOn)
+                {
+                    imageView.setImageResource(R.drawable.home_charging);
+                    currentScreen = 2;
+                }
+                break;
+
+            case R.id.lowerLeftSelect:
+                if (screenOn)
+                {
+                    switch (currentScreen)
+                    {
+                        case 0: // Logo
+                            break;
+                        case 1: // Home Unplugged
+                            imageView.setImageResource(R.drawable.implant_info);
+                            currentScreen = 3;
+                            break;
+                        case 2: // Home Charging
+                            imageView.setImageResource(R.drawable.implant_info);
+                            currentScreen = 3;
+                            break;
+                        case 3: // Implant Info
+                            // More Info Screen
+                            break;
+                        case 4: // Charger Info
+                            // More Info Screen
+                            break;
+                    }
+
+                }
+                break;
+
+            case R.id.lowerRightSelect:
+                if (screenOn)
+                {
+                    switch (currentScreen)
+                    {
+                        case 0: // Logo
+                            break;
+                        case 1: // Home Unplugged
+                            imageView.setImageResource(R.drawable.charger_info);
+                            currentScreen = 4;
+                            break;
+                        case 2: // Home Charging
+                            imageView.setImageResource(R.drawable.charger_info);
+                            currentScreen = 4;
+                            break;
+                        case 3: // Implant Info
+                            imageView.setImageResource(R.drawable.home_unplugged);
+                            currentScreen = 1;
+                            break;
+                        case 4: // Charger Info
+                            imageView.setImageResource(R.drawable.home_unplugged);
+                            currentScreen = 1;
+                            break;
+                    }
+                }
                 break;
 
             case R.id.arrowUpButton:
@@ -109,6 +185,20 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             case R.id.arrowRightButton:
                 break;
+
+            case R.id.powerButton:
+                if (screenOn)
+                {
+                    imageView.setVisibility(View.INVISIBLE);
+                    screenOn = false;
+                    break;
+                }
+                else
+                {
+                    imageView.setVisibility(View.VISIBLE);
+                    screenOn = true;
+                    break;
+                }
 
             default:
                 break;
