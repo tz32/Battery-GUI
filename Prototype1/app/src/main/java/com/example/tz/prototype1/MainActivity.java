@@ -8,31 +8,33 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import static com.example.tz.prototype1.R.id.home_unplugged;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
-    TextView mainTextView;
+    ImageView imageView;
     ImageButton OKButton;
     ImageButton HomeButton;
     ImageButton arrowUpButton;
     ImageButton arrowDownButton;
     ImageButton arrowLeftButton;
     ImageButton arrowRightButton;
+    ImageButton lowerLeftSelect;
+    ImageButton lowerRightSelect;
+    int currentScreen = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        mainTextView = (TextView) findViewById(R.id.buttonpushtext);
-        mainTextView.setVisibility(View.INVISIBLE);
-        mainTextView.setText("");
-
+        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.home_unplugged);
+        imageView.setVisibility(View.VISIBLE);
 
         OKButton = (ImageButton) findViewById(R.id.OKButton);
         OKButton.setOnClickListener(this);
@@ -51,6 +53,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         arrowRightButton = (ImageButton) findViewById(R.id.arrowRightButton);
         arrowRightButton.setOnClickListener(this);
+
+        lowerLeftSelect = (ImageButton) findViewById(R.id.lowerLeftSelect);
+        lowerLeftSelect.setOnClickListener(this);
+
+        lowerRightSelect = (ImageButton) findViewById(R.id.lowerRightSelect);
+        lowerRightSelect.setOnClickListener(this);
+
     }
 
 
@@ -82,33 +91,23 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.homeButton:
-                mainTextView.setVisibility(View.VISIBLE);
-                mainTextView.setText("Home Button Pressed!");
+                imageView.setImageResource(R.drawable.home_unplugged);
                 break;
 
             case R.id.OKButton:
-                mainTextView.setVisibility(View.VISIBLE);
-                mainTextView.setText("OK Button Pressed!");
+                imageView.setImageResource(R.drawable.home_charging);
                 break;
 
             case R.id.arrowUpButton:
-                mainTextView.setVisibility(View.VISIBLE);
-                mainTextView.setText("Up Arrow Pressed!");
                 break;
 
             case R.id.arrowDownButton:
-                mainTextView.setVisibility(View.VISIBLE);
-                mainTextView.setText("Down Arrow Pressed!");
                 break;
 
             case R.id.arrowLeftButton:
-                mainTextView.setVisibility(View.VISIBLE);
-                mainTextView.setText("Left Arrow Pressed!");
                 break;
 
             case R.id.arrowRightButton:
-                mainTextView.setVisibility(View.VISIBLE);
-                mainTextView.setText("Right Arrow Pressed!");
                 break;
 
             default:
