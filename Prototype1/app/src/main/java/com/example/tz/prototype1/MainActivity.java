@@ -179,14 +179,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         case 0: // Logo
                             break;
                         case 1: // Home Unplugged
-                            imageView.setImageResource(R.drawable.charger_history);
-                            currentScreen = 4;
+                            // Implant Status
+        //                    imageView.setImageResource(R.drawable.settings);
+                            currentScreen = 7;
                             break;
                         case 2: // Home Charging
-                            imageView.setImageResource(R.drawable.charger_history);
-                            currentScreen = 4;
+                            // Implant Status
+        //                    imageView.setImageResource(R.drawable.settings);
+                            currentScreen = 7;
                             break;
                         case 3: // Implant Info
+                            //
                             imageView.setImageResource(R.drawable.home_unplugged);
                             currentScreen = 1;
                             break;
