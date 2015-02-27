@@ -100,8 +100,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         // 0: logo
         // 1: home_unplugged
         // 2: home_charging
-        // 3: implant_info
-        // 4: charger_info
+        // 3: implant_history
+        // 4: charger_history
+        // 5: charger_status
+        // 6: inplant_status
+        // 7: settings
 
 
         switch (v.getId()) {
@@ -129,18 +132,39 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         case 0: // Logo
                             break;
                         case 1: // Home Unplugged
-                            imageView.setImageResource(R.drawable.implant_info);
-                            currentScreen = 3;
+                            // Implant Status
+                            imageView.setImageResource(R.drawable.implant_status);
+                            currentScreen = 6;
                             break;
                         case 2: // Home Charging
-                            imageView.setImageResource(R.drawable.implant_info);
+                            // Implant Status
+                            imageView.setImageResource(R.drawable.implant_status);
+                            currentScreen = 6;
+                            break;
+                        case 3: // Implant History
+                            // Settings
+        //                    imageView.setImageResource(R.drawable.settings);
+                            currentScreen = 7;
+                            break;
+                        case 4: // Charger History
+                            // Implant History
+                            imageView.setImageResource(R.drawable.implant_history);
                             currentScreen = 3;
                             break;
-                        case 3: // Implant Info
-                            // More Info Screen
+                        case 5: // Charger Status
+                            // Charger History
+                            imageView.setImageResource(R.drawable.charger_history);
+                            currentScreen = 4;
                             break;
-                        case 4: // Charger Info
-                            // More Info Screen
+                        case 6: // Implant Status
+                            // Settings
+                            imageView.setImageResource(R.drawable.charger_status);
+                            currentScreen = 5;
+                            break;
+                        case 7: // Settings
+                            // Home Unplugged
+                            imageView.setImageResource(R.drawable.home_unplugged);
+                            currentScreen = 1;
                             break;
                     }
 
@@ -155,11 +179,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         case 0: // Logo
                             break;
                         case 1: // Home Unplugged
-                            imageView.setImageResource(R.drawable.charger_info);
+                            imageView.setImageResource(R.drawable.charger_history);
                             currentScreen = 4;
                             break;
                         case 2: // Home Charging
-                            imageView.setImageResource(R.drawable.charger_info);
+                            imageView.setImageResource(R.drawable.charger_history);
                             currentScreen = 4;
                             break;
                         case 3: // Implant Info
