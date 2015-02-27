@@ -143,7 +143,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                             break;
                         case 3: // Implant History
                             // Settings
-        //                    imageView.setImageResource(R.drawable.settings);
+                            imageView.setImageResource(R.drawable.settings_static);
                             currentScreen = 7;
                             break;
                         case 4: // Charger History
@@ -180,22 +180,38 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                             break;
                         case 1: // Home Unplugged
                             // Implant Status
-        //                    imageView.setImageResource(R.drawable.settings);
+                            imageView.setImageResource(R.drawable.settings_static);
                             currentScreen = 7;
                             break;
                         case 2: // Home Charging
                             // Implant Status
-        //                    imageView.setImageResource(R.drawable.settings);
+                            imageView.setImageResource(R.drawable.settings_static);
                             currentScreen = 7;
                             break;
-                        case 3: // Implant Info
-                            //
+                        case 3: // Implant History
+                            // Charger History
+                            imageView.setImageResource(R.drawable.charger_history);
+                            currentScreen = 4;
+                            break;
+                        case 4: // Charger History
+                            // Charger Status
+                            imageView.setImageResource(R.drawable.charger_status);
+                            currentScreen = 5;
+                            break;
+                        case 5: // Charger Status
+                            // Implant Status
+                            imageView.setImageResource(R.drawable.implant_status);
+                            currentScreen = 6;
+                            break;
+                        case 6: // Implant Status
+                            // Home
                             imageView.setImageResource(R.drawable.home_unplugged);
                             currentScreen = 1;
                             break;
-                        case 4: // Charger Info
-                            imageView.setImageResource(R.drawable.home_unplugged);
-                            currentScreen = 1;
+                        case 7: // Settings
+                            // Implant History
+                            imageView.setImageResource(R.drawable.implant_history);
+                            currentScreen = 3;
                             break;
                     }
                 }
