@@ -1,9 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:weightSum="1"
     android:background="#ff000000">
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -20,12 +25,7 @@
             android:contentDescription="@string/mainScreen"
             android:layout_weight="5.26" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/powerButton"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/power" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -102,4 +102,14 @@
         android:id="@+id/arrowDownButton"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/arrow_down_big" />
+</LinearLayout>
+
+<ImageButton
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/powerButton"
+android:layout_gravity="center_vertical|top"
+android:src="@drawable/power"
+    android:contentDescription="PowerButton"
+    android:layout_marginTop="100dp" />
 </LinearLayout>
