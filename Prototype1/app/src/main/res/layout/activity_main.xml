@@ -57,10 +57,11 @@
 
     <ImageButton
         android:layout_width="75dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/arrowUpButton"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/arrow_up_big" />
+        android:src="@drawable/arrow_up"
+        android:background="#ff000000" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -69,16 +70,17 @@
         android:layout_gravity="center_horizontal">
 
         <ImageButton
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:id="@+id/arrowLeftButton"
-            android:src="@drawable/arrow_left_big"
+            android:src="@drawable/arrow_left"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="#ff000000" />
 
         <ImageButton
             android:layout_width="75dp"
-            android:layout_height="79dp"
+            android:layout_height="75dp"
             android:id="@+id/OKButton"
             android:src="@drawable/ok_button_big"
             android:layout_centerVertical="true"
@@ -88,20 +90,22 @@
             />
 
         <ImageButton
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:id="@+id/arrowRightButton"
-            android:src="@drawable/arrow_right_big"
+            android:src="@drawable/arrow_right"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="#ff000000" />
     </LinearLayout>
 
     <ImageButton
         android:layout_width="75dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/arrowDownButton"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/arrow_down_big" />
+        android:src="@drawable/arrow_down"
+        android:background="#ff000000" />
 </LinearLayout>
 
 <ImageButton
